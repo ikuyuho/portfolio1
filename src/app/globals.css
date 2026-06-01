@@ -30,3 +30,19 @@ body {
   background-color: var(--color-warm-50);
   color: var(--color-text-primary);
 }
+
+/* react-slick ウォームテーマ上書き */
+.case-slider .slick-dots li button::before {
+  color: var(--color-warm-400);
+  font-size: 8px;
+}
+.case-slider .slick-dots li.slick-active button::before {
+  color: var(--color-accent);
+}
+.case-slider .slick-prev::before,
+.case-slider .slick-next::before {
+  color: var(--color-accent);
+}
+.case-slider .slick-dots {
+  bottom: -24px;
+}

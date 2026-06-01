@@ -1,4 +1,5 @@
 import type { Case } from "@/data/cases";
+import CaseSlider from "@/components/CaseSlider";
 
 type Props = {
   caseItem: Case;
@@ -13,6 +14,9 @@ export default function CaseCard({ caseItem }: Props) {
       <p className="text-text-secondary text-sm leading-relaxed mb-4">
         {caseItem.description}
       </p>
+      {caseItem.images.length > 0 && (
+        <CaseSlider images={caseItem.images} title={caseItem.title} />
+      )}
       <p className="text-accent font-medium text-sm mb-4">{caseItem.result}</p>
       <div className="flex flex-wrap gap-2">
         {caseItem.tools.map((tool) => (
