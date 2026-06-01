@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef } from "react";
 import type { Case } from "@/data/cases";
 import CaseSlider from "@/components/CaseSlider";
 
@@ -6,28 +9,89 @@ type Props = {
 };
 
 export default function CaseCard({ caseItem }: Props) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  const openModal = () => dialogRef.current?.showModal();
+  const closeModal = () => dialogRef.current?.close();
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDialogElement>) => {
+    if (e.target === dialogRef.current) closeModal();
+  };
+
   return (
-    <article className="bg-white rounded-2xl p-6 shadow-sm border border-warm-200">
-      <h3 className="text-lg font-bold text-text-primary mb-2">
-        {caseItem.title}
-      </h3>
-      <p className="text-text-secondary text-sm leading-relaxed mb-4">
-        {caseItem.description}
-      </p>
-      {caseItem.images.length > 0 && (
-        <CaseSlider images={caseItem.images} title={caseItem.title} />
-      )}
-      <p className="text-accent font-medium text-sm mb-4">{caseItem.result}</p>
-      <div className="flex flex-wrap gap-2">
-        {caseItem.tools.map((tool) => (
-          <span
-            key={tool}
-            className="px-3 py-1 text-xs rounded-full bg-warm-100 text-text-secondary"
+    <>
+      {/* カード（サマリー） */}
+      <article
+        className="bg-white rounded-2xl p-6 shadow-sm border border-warm-200 cursor-pointer hover:shadow-md"
+        onClick={openModal}
+      >
+        <h3 className="text-lg font-bold text-text-primary mb-2">
+          {caseItem.title}
+        </h3>
+        <p className="text-text-secondary text-sm leading-relaxed mb-4 line-clamp-3">
+          {caseItem.description}
+        </p>
+        <p className="text-accent font-medium text-sm mb-4">{caseItem.result}</p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {caseItem.tools.map((tool) => (
+            <span
+              key={tool}
+              className="px-3 py-1 text-xs rounded-full bg-warm-100 text-text-secondary"
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
+        {caseItem.images.length > 0 && (
+          <p className="text-xs text-text-muted">
+            📎 添付 {caseItem.images.length}件
+          </p>
+        )}
+      </article>
+
+      {/* モーダル */}
+      <dialog
+        ref={dialogRef}
+        className="case-modal"
+        onClick={handleBackdropClick}
+      >
+        {/* ヘッダー（固定） */}
+        <div className="shrink-0 flex items-center justify-between px-6 py-4 border-b border-warm-200">
+          <h2 className="text-lg font-bold text-text-primary">
+            {caseItem.title}
+          </h2>
+          <button
+            onClick={closeModal}
+            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-warm-100 text-text-muted text-lg"
+            aria-label="閉じる"
           >
-            {tool}
-          </span>
-        ))}
-      </div>
-    </article>
+            ✕
+          </button>
+        </div>
+
+        {/* スクロール領域 */}
+        <div className="flex-1 overflow-y-auto p-6 pb-10">
+          {caseItem.images.length > 0 && (
+            <div className="mb-6">
+              <CaseSlider images={caseItem.images} title={caseItem.title} />
+            </div>
+          )}
+          <p className="text-text-secondary text-sm leading-relaxed mb-4">
+            {caseItem.description}
+          </p>
+          <p className="text-accent font-semibold mb-4">{caseItem.result}</p>
+          <div className="flex flex-wrap gap-2">
+            {caseItem.tools.map((tool) => (
+              <span
+                key={tool}
+                className="px-3 py-1 text-xs rounded-full bg-warm-100 text-text-secondary"
+              >
+                {tool}
+              </span>
+            ))}
+          </div>
+        </div>
+      </dialog>
+    </>
   );
 }
