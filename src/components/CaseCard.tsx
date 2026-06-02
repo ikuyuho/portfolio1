@@ -22,7 +22,7 @@ export default function CaseCard({ caseItem }: Props) {
     <>
       {/* カード（サマリー） */}
       <article
-        className="bg-white rounded-2xl p-6 shadow-sm border border-warm-200 cursor-pointer hover:shadow-md"
+        className="bg-white rounded-2xl p-6 shadow-sm border border-warm-200 cursor-pointer hover:shadow-md hover:border-accent hover:-translate-y-1 transition-all duration-200"
         onClick={openModal}
       >
         <h3 className="text-lg font-bold text-text-primary mb-2">
@@ -43,10 +43,27 @@ export default function CaseCard({ caseItem }: Props) {
           ))}
         </div>
         {caseItem.images.length > 0 && (
-          <p className="text-xs text-text-muted">
+          <p className="text-xs text-text-muted mb-4">
             📎 添付 {caseItem.images.length}件
           </p>
         )}
+        <div className="flex items-center justify-end gap-1 text-accent text-sm font-medium">
+          <span>詳細を見る</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
+        </div>
       </article>
 
       {/* モーダル */}
