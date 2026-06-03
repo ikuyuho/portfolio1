@@ -18,7 +18,14 @@ export const cases: Case[] = [
       "毎月200件以上の請求書をシステムに手入力していた作業をRPAで完全自動化。入力ミスもゼロになり、担当者を別業務にシフトできた。",
     result: "作業時間 80% 削減（月40時間 → 8時間）",
     tools: ["UiPath", "Excel"],
-    images: ["/cases/001/work-improvement-1.pdf"],
+    images: [
+      "/001/01.png",
+      "/001/02.png",
+      "/001/03.png",
+      "/001/04.png",
+      "/001/05.png",
+      "/001/06.png",
+    ],
   },
   {
     id: "002",
