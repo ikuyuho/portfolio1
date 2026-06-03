@@ -6,15 +6,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 type Props = {
-  images: string[];
-  title: string;
+  images: string[]
+  title: string
 };
 
 function isPdf(src: string) {
   return src.toLowerCase().endsWith(".pdf");
 }
 
-function SlideItem({ src, label }: { src: string; label: string }) {
+function SlideItem({ src, label }: { src: string, label: string }) {
   if (isPdf(src)) {
     return (
       <iframe
@@ -105,7 +105,10 @@ export default function CaseSlider({ images, title }: Props) {
           />
         ))}
         <span className="ml-3 text-xs text-text-muted tabular-nums">
-          {current + 1} / {images.length}
+          {current + 1}
+          {" "}
+          /
+          {images.length}
         </span>
       </div>
     </div>

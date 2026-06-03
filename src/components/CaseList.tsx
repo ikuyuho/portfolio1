@@ -8,7 +8,7 @@ export default function CaseList() {
         業務改善の実績
       </h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        {cases.map((c) => (
+        {cases.map(c => (
           <CaseCard key={c.id} caseItem={c} />
         ))}
       </div>

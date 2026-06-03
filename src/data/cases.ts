@@ -1,23 +1,28 @@
 export type Case = {
-  id: string;
-  title: string;
-  description: string;
-  result: string;
-  tools: string[];
+  id: string
+  title: string
+  description: string
+  result: string
+  tools: string[]
   /** スクリーンショットのパス配列。public/cases/{id}/ 配下に配置。
    *  例: ["/cases/001/01.png", "/cases/001/02.png"]
    *  空配列の場合はスライダーを非表示にする。 */
-  images: string[];
+  images: string[]
 };
 
 export const cases: Case[] = [
   {
     id: "001",
-    title: "請求書処理の自動化",
+    title: "問い合わせ管理の自動化",
     description:
-      "毎月200件以上の請求書をシステムに手入力していた作業をRPAで完全自動化。入力ミスもゼロになり、担当者を別業務にシフトできた。",
-    result: "作業時間 80% 削減（月40時間 → 8時間）",
-    tools: ["UiPath", "Excel"],
+"Gmailとスプレッドシートに分散していた問い合わせ管理を、Googleフォーム・スプレッドシート・GAS・Slack通知で一元化。転記作業や対応漏れを減らし、営業担当が問い合わせ状況をすぐ確認できる仕組みを構築しました。",
+    result: "転記作業削減・対応漏れ削減・問い合わせ状況の可視化を実現",
+    tools: [
+      "Google Forms",
+      "Google Sheets",
+      "Google Apps Script",
+      "Slack",
+    ],
     images: [
       "/001/01.png",
       "/001/02.png",

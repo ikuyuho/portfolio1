@@ -5,7 +5,7 @@ import type { Case } from "@/data/cases";
 import CaseSlider from "@/components/CaseSlider";
 
 type Props = {
-  caseItem: Case;
+  caseItem: Case
 };
 
 export default function CaseCard({ caseItem }: Props) {
@@ -33,7 +33,7 @@ export default function CaseCard({ caseItem }: Props) {
         </p>
         <p className="text-accent font-medium text-sm mb-4">{caseItem.result}</p>
         <div className="flex flex-wrap gap-2 mb-4">
-          {caseItem.tools.map((tool) => (
+          {caseItem.tools.map(tool => (
             <span
               key={tool}
               className="px-3 py-1 text-xs rounded-full bg-warm-100 text-text-secondary"
@@ -44,7 +44,10 @@ export default function CaseCard({ caseItem }: Props) {
         </div>
         {caseItem.images.length > 0 && (
           <p className="text-xs text-text-muted mb-4">
-            📎 添付 {caseItem.images.length}件
+            📎 添付
+            {" "}
+            {caseItem.images.length}
+            件
           </p>
         )}
         <div className="flex items-center justify-end gap-1 text-accent text-sm font-medium">
@@ -98,7 +101,7 @@ export default function CaseCard({ caseItem }: Props) {
           </p>
           <p className="text-accent font-semibold mb-4">{caseItem.result}</p>
           <div className="flex flex-wrap gap-2">
-            {caseItem.tools.map((tool) => (
+            {caseItem.tools.map(tool => (
               <span
                 key={tool}
                 className="px-3 py-1 text-xs rounded-full bg-warm-100 text-text-secondary"
