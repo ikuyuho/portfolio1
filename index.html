@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>業務改善・RPA自動化の実績 | IKUTO</title>
+  <meta name="description" content="RPA・業務自動化による改善実績をご紹介します。御社の業務課題を解決するパートナーをお探しの方はお気軽にご相談ください。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf8f5;
+      --white: #ffffff;
+      --accent: #c17d3c;
+      --accent-hover: #a86a2e;
+      --text-primary: #2c2420;
+      --text-secondary: #6b5c52;
+      --text-muted: #9e8e85;
+      --border: #e8dfd6;
+      --tag-bg: #f0e8e0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    /* ─── Hero ─── */
+    #hero {
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+    #hero .label {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    #hero h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+    #hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 36rem;
+      margin: 0 auto 2rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      background: var(--accent);
+      color: #fdf8f3;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: var(--accent-hover); }
+
+    /* ─── Cases ─── */
+    #cases {
+      padding: 4rem 1.5rem;
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+    #cases h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    .card {
+      background: var(--white);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .card .desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card .result {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: var(--tag-bg);
+      color: var(--text-secondary);
+    }
+
+    /* ─── Modal ─── */
+    dialog {
+      max-width: 40rem;
+      width: 90%;
+      border: none;
+      border-radius: 1rem;
+      padding: 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+    dialog::backdrop {
+      background: rgba(0,0,0,0.4);
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-header h2 { font-size: 1rem; font-weight: 700; }
+    .modal-close {
+      width: 2rem; height: 2rem;
+      border: none; background: none; cursor: pointer;
+      border-radius: 50%;
+      font-size: 1rem;
+      color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal-close:hover { background: var(--tag-bg); }
+    .modal-body { padding: 1.5rem; }
+    .modal-body .desc { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
+    .modal-body .result { font-size: 0.9rem; font-weight: 600; color: var(--accent); margin-bottom: 1rem; }
+
+    /* ─── Contact ─── */
+    #contact {
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+    #contact h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+    #contact p {
+      color: var(--text-secondary);
+      max-width: 28rem;
+      margin: 0 auto 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section id="hero">
+  <p class="label">業務改善 / RPA自動化</p>
+  <h1>[Your Name]</h1>
+  <p>反復業務をなくし、人が本来の仕事に集中できる環境をつくります。</p>
+  <a href="#contact" class="btn">お問い合わせ</a>
+</section>
+
+<!-- Cases -->
+<section id="cases">
+  <h2>業務改善の実績</h2>
+  <div class="grid">
+
+    <!-- Case 1 -->
+    <article class="card" onclick="document.getElementById('modal-001').showModal()">
+      <h3>請求書処理の自動化</h3>
+      <p class="desc">毎月200件以上の請求書をシステムに手入力していた作業をRPAで完全自動化。入力ミスもゼロになり、担当者を別業務にシフトできた。</p>
+      <p class="result">作業時間 80% 削減（月40時間 → 8時間）</p>
+      <div class="tags">
+        <span class="tag">UiPath</span>
+        <span class="tag">Excel</span>
+      </div>
+    </article>
+    <dialog id="modal-001">
+      <div class="modal-header">
+        <h2>請求書処理の自動化</h2>
+        <button class="modal-close" onclick="document.getElementById('modal-001').close()" aria-label="閉じる">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="desc">毎月200件以上の請求書をシステムに手入力していた作業をRPAで完全自動化。入力ミスもゼロになり、担当者を別業務にシフトできた。</p>
+        <p class="result">作業時間 80% 削減（月40時間 → 8時間）</p>
+        <div class="tags">
+          <span class="tag">UiPath</span>
+          <span class="tag">Excel</span>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Case 2 -->
+    <article class="card" onclick="document.getElementById('modal-002').showModal()">
+      <h3>在庫管理レポートの自動生成</h3>
+      <p class="desc">複数システムに分散した在庫データを毎朝手動で集計・加工していた日次レポート作成をPythonで自動化。朝一番に自動配信されるように。</p>
+      <p class="result">毎日2時間の作業を完全自動化（月40時間削減）</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Excel VBA</span>
+      </div>
+    </article>
+    <dialog id="modal-002">
+      <div class="modal-header">
+        <h2>在庫管理レポートの自動生成</h2>
+        <button class="modal-close" onclick="document.getElementById('modal-002').close()" aria-label="閉じる">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="desc">複数システムに分散した在庫データを毎朝手動で集計・加工していた日次レポート作成をPythonで自動化。朝一番に自動配信されるように。</p>
+        <p class="result">毎日2時間の作業を完全自動化（月40時間削減）</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Excel VBA</span>
+        </div>
+      </div>
+    </dialog>
+
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>お問い合わせ</h2>
+  <p>業務改善に関するご相談はお気軽にどうぞ。まずは課題をお聞かせください。</p>
+  <a href="mailto:your@email.com" class="btn">メールで相談する</a>
+</section>
+
+</body>
+</html>
