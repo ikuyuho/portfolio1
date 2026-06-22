@@ -34,11 +34,19 @@ export const cases: Case[] = [
   },
   {
     id: "002",
-    title: "在庫管理レポートの自動生成",
+    title: "売上CSV取込・出力の自動化",
     description:
-      "複数システムに分散した在庫データを毎朝手動で集計・加工していた日次レポート作成をPythonで自動化。朝一番に自動配信されるように。",
-    result: "毎日2時間の作業を完全自動化（月40時間削減）",
-    tools: ["Python", "Excel VBA"],
+      "複数チャネルから届く売上CSVをGoogle Driveに配置するだけで、Google Apps Scriptが自動で取込・バリデーション・重複チェック・エラー記録・Slack通知まで実行。正常データはスプレッドシートに蓄積し、freee取込用・売上レポート用・税理士提出用・BI分析用のCSVを出力できる仕組みを構築しました。",
+    result:
+      "CSV集計作業の削減・入力ミス防止・エラー確認の効率化・会計/分析向けCSV出力を実現",
+    tools: [
+      "Google Drive",
+      "Google Sheets",
+      "Google Apps Script",
+      "Slack",
+      "CSV",
+      "clasp",
+    ],
     images: [
       "/002/01.png",
       "/002/02.png",
@@ -46,13 +54,6 @@ export const cases: Case[] = [
       "/002/04.png",
       "/002/05.png",
       "/002/06.png",
-      "/002/07.png",
-      "/002/08.png",
-      "/002/09.png",
-      "/002/10.png",
-      "/002/11.png",
-      "/002/12.png",
-      "/002/13.png",
     ],
   },
 ];
