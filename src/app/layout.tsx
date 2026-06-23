@@ -9,7 +9,7 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "業務改善・RPA自動化の実績 | [Your Name]",
+  title: "業務改善・RPA自動化の実績 | IKUTO",
   description:
     "RPA・業務自動化による改善実績をご紹介します。御社の業務課題を解決するパートナーをお探しの方はお気軽にご相談ください。",
 };
